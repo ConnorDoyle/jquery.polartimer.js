@@ -2,9 +2,12 @@ Polartimer is a circular progress widget supporting basic options
 and a callback function. The polartimer plugin requires jQuery 
 and the Raphael SVG library.
 
-http://jquery.com
+Uses:
+ http://jquery.com
+ http://raphaeljs.com
 
-http://raphaeljs.com
+Live Demo:
+ http://oneorangesoftware.com/polartimer
 
 polartimer jQuery plugin by Connor Doyle is licensed under a 
 Creative Commons Attribution 3.0 Unported License. Based in part
