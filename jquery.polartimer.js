@@ -102,6 +102,7 @@
         	return this.each(function () {
 				var data = $(this).data('polartimer');
 				if (data) {
+					clearInterval(data.timer);
 					data.timerFinish = new Date().getTime()+(data.timerSeconds*1000);
 					$(this).polartimer('drawTimer', 0);
 					data.timer = setInterval("$this.polartimer('stopWatch')", 50);
