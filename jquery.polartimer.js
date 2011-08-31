@@ -90,7 +90,7 @@
 						var frame = data.raphael.path(path);
 						frame.attr({
 							fill: data.color,
-							stroke: data.stroke,
+							stroke: 'none',
 							opacity: data.opacity
 						});
 					}
