@@ -22,7 +22,7 @@
 
             state = $.extend(state, options);
 
-            return this.each(function() {
+            return this.each(function () {
                 var $this = $(this);
                 var data = $this.data('polartimer');
                 if ( ! data ) {
@@ -32,7 +32,6 @@
                     state.timerCurrent = 0;
                     state.pi2 = Math.PI * 2;
                     state.piOver2 = Math.PI / 2;
-                    state.stroke = 'none';
                     state.width = $this.width();
                     state.height = $this.height();
                     state.raphael = Raphael($this.context, state.width, state.height);
@@ -72,7 +71,7 @@
 					if (percent == 100) {
 						data.raphael.circle(cx, cx, cx).attr({
 							fill: data.color,
-							stroke: data.stroke,
+							stroke: 'none',
 							opacity: data.opacity
 						});
 					}
@@ -100,7 +99,7 @@
         },
 
         start : function () {
-        	return this.each(function() {
+        	return this.each(function () {
 				var data = $(this).data('polartimer');
 				if (data) {
 					data.timerFinish = new Date().getTime()+(data.timerSeconds*1000);
@@ -118,7 +117,19 @@
 					$(this).polartimer('drawTimer', 0);
 				}
         	});
-        }
+        },
+
+		destroy : function () {
+			return this.each(function () {
+				var $this = $(this);
+				var data = $this.data('polartimer');
+				if (data) {
+					clearInterval(data.timer);
+					data.raphael.remove();
+					$this.removeData('polartimer');
+				}
+			});
+		}
 
     };
 })(jQuery);
