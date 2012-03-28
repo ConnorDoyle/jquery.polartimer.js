@@ -107,10 +107,10 @@
                     clearInterval(data.timer);
                     data.timerFinish = new Date().getTime() + (data.timerSeconds * 1000);
                     $(this).polartimer('drawTimer', 0);
-					var id = $this.attr('id');
-					data.timer = (! id || id === "") ?
-						setInterval("$this.polartimer('stopWatch')", 50) :
-						setInterval("$('#"+id+"').polartimer('stopWatch')", 50);
+                    var id = $this.attr('id');
+                    data.timer = (! id || id === "") ?
+                        setInterval("$this.polartimer('stopWatch')", 50) :
+                        setInterval("$('#"+id+"').polartimer('stopWatch')", 50);
                 }
             });
         },
@@ -133,10 +133,10 @@
                     data.timerFinish = new Date().getTime() + (data.secondsLeft * 1000);
                     data.secondsLeft = null;
                     $(this).polartimer('drawTimer', 0);
-					var id = $this.attr('id');
-					data.timer = (! id || id === "") ?
-						setInterval("$this.polartimer('stopWatch')", 50) :
-						setInterval("$('#"+id+"').polartimer('stopWatch')", 50);
+                    var id = $this.attr('id');
+                    data.timer = (! id || id === "") ?
+                        setInterval("$this.polartimer('stopWatch')", 50) :
+                        setInterval("$('#"+id+"').polartimer('stopWatch')", 50);
                 }
             });
         },
