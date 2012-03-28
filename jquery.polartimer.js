@@ -131,7 +131,7 @@
                 if (data && data.secondsLeft) {
                     clearInterval(data.timer);
                     data.timerFinish = new Date().getTime() + (data.secondsLeft * 1000);
-					data.secondsLeft = null;
+                    data.secondsLeft = null;
                     $(this).polartimer('drawTimer', 0);
 					var id = $this.attr('id');
 					data.timer = (! id || id === "") ?
