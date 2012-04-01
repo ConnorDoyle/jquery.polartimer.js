@@ -147,6 +147,7 @@
         var data = $(this).data('polartimer');
         if (data) {
           clearInterval(data.timer);
+          data.resumeSeconds = null; // clears paused state
           $(this).polartimer('drawTimer', 0);
         }
       });
