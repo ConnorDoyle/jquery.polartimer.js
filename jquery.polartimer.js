@@ -105,6 +105,7 @@
         var data = $(this).data('polartimer');
         if (data) {
           clearInterval(data.timer);
+          data.resumeSeconds = null; // clears paused state
           data.timerFinish = new Date().getTime() + (data.timerSeconds * 1000);
           $(this).polartimer('drawTimer', 0);
           var id = $this.attr('id');
@@ -118,8 +119,8 @@
     pause : function() {
       return this.each(function() {
         var data = $(this).data('polartimer');
-        if (data && ! data.secondsLeft) {
-          data.secondsLeft = (data.timerFinish - (new Date().getTime())) / 1000;
+        if (data && ! data.resumeSeconds) {
+          data.resumeSeconds = (data.timerFinish - (new Date().getTime())) / 1000;
           clearInterval(data.timer);
         }
       });
@@ -128,10 +129,10 @@
     resume : function() {
       return this.each(function() {
         var data = $(this).data('polartimer');
-        if (data && data.secondsLeft) {
+        if (data && data.resumeSeconds) {
           clearInterval(data.timer);
-          data.timerFinish = new Date().getTime() + (data.secondsLeft * 1000);
-          data.secondsLeft = null;
+          data.timerFinish = new Date().getTime() + (data.resumeSeconds * 1000);
+          data.resumeSeconds = null;
           $(this).polartimer('drawTimer', 0);
           var id = $this.attr('id');
           data.timer = (! id || id === "") ?
