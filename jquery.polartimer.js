@@ -100,14 +100,16 @@
       });
     },
 
-    start : function() {
+    start : function(percent) {
       return this.each(function() {
         var data = $(this).data('polartimer');
         if (data) {
+          if (percent < 0 || !percent) percent = 0;
+          if (percent > 100) percent = 100;
           clearInterval(data.timer);
           data.resumeSeconds = null; // clears paused state
-          data.timerFinish = new Date().getTime() + (data.timerSeconds * 1000);
-          $(this).polartimer('drawTimer', 0);
+          data.timerFinish = new Date().getTime() + (data.timerSeconds * 1000) * (1 - percent / 100);
+          $(this).polartimer('drawTimer', percent);
           var id = $this.attr('id');
           data.timer = (! id || id === "") ?
             setInterval("$this.polartimer('stopWatch')", 50) :
@@ -132,8 +134,8 @@
         if (data && data.resumeSeconds) {
           clearInterval(data.timer);
           data.timerFinish = new Date().getTime() + (data.resumeSeconds * 1000);
+          $(this).polartimer('drawTimer', 100 * (data.timerSeconds - data.resumeSeconds) / data.timerSeconds);
           data.resumeSeconds = null;
-          $(this).polartimer('drawTimer', 0);
           var id = $this.attr('id');
           data.timer = (! id || id === "") ?
             setInterval("$this.polartimer('stopWatch')", 50) :
