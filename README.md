@@ -60,9 +60,10 @@ Methods
 
     `$('#myElem').polartimer([options]);`
 
-* __start:__  Starts the timer. The timer must be created with a call to init first.
+* __start:__  Starts the timer. The timer must be created with a call to init first. Optionally pass a percentage to start at.
 
     `$('#myElem').polartimer('start');`
+    `$('#myElem').polartimer('start', 25); # Start as if 25% of the time has already elapsed.`
 
 * __pause:__  Pauses the running timer. The timer must be created with a call to init first.
 
