@@ -58,12 +58,13 @@ Methods
 
 * __init:__  Creates the timer state and its backing SVG canvas. This method may take as an argument an object containing options which override the default settings.
 
-    `$('#myElem').polartimer([options]);`
+    `$('#myElem').polartimer();           // Initialize a timer with default settings`
+    `$('#myElem').polartimer([options]);  // or pass an object, overriding some settings`
 
 * __start:__  Starts the timer. The timer must be created with a call to init first. Optionally pass a percentage to start at.
 
     `$('#myElem').polartimer('start');`
-    `$('#myElem').polartimer('start', 25); # Start as if 25% of the time has already elapsed.`
+    `$('#myElem').polartimer('start', 25); // Start as if 25% of the time has already elapsed.`
 
 * __pause:__  Pauses the running timer. The timer must be created with a call to init first.
 
