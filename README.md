@@ -3,8 +3,6 @@ polartimer.js
 
 Polartimer is a circular progress widget supporting basic options and a callback function.
 
-See the **Demo** at http://oneorangesoftware.com/polartimer.
-
 Dependencies
 ------------
 
