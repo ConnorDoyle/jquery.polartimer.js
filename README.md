@@ -14,32 +14,40 @@ Usage Example
 
 ### Include dependencies
 
-    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-    <script type="text/javascript" src="raphael-min.js"></script>
-    <script type="text/javascript" src="jquery.polartimer.min.js"></script>
+```html
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="raphael-min.js"></script>
+<script type="text/javascript" src="jquery.polartimer.min.js"></script>
+```
 
 ### Markup
 
-    <div id="demoTimer"></div>
+```html
+<div id="demoTimer"></div>
+```
 
 ### CSS
 
-    #demoTimer { width: 150px; }
+```css
+#demoTimer { width: 150px; }
+```
 
 ### Javascript
 
-    // create the timer
-    $('#demoTimer').polartimer({
-     timerSeconds: 6,
-     color: '#F00',
-     opacity: 0.7,
-     callback: function () {
-      alert('jquery.polartimer.js: done!');
-     }
-    });
+```javascript
+// create the timer
+$('#demoTimer').polartimer({
+  timerSeconds: 6,
+  color: '#F00',
+  opacity: 0.7,
+  callback: function () {
+    alert('jquery.polartimer.js: done!');
+  }
+});
 
-    // start the timer
-    $('#demoTimer').polartimer('start');
+// start the timer
+$('#demoTimer').polartimer('start');
+```
 
 Options
 -------
@@ -56,30 +64,41 @@ Methods
 
 * __init:__  Creates the timer state and its backing SVG canvas. This method may take as an argument an object containing options which override the default settings.
 
-    `$('#myElem').polartimer();           // Initialize a timer with default settings`
-    `$('#myElem').polartimer([options]);  // or pass an object, overriding some settings`
+  ```javascript
+  $('#myElem').polartimer();           // Initialize a timer with default settings
+  $('#myElem').polartimer([options]);  // or pass an object, overriding some settings
+  ```
 
 * __start:__  Starts the timer. The timer must be created with a call to init first. Optionally pass a percentage to start at.
 
-    `$('#myElem').polartimer('start');`
-    `$('#myElem').polartimer('start', 25); // Start as if 25% of the time has already elapsed.`
+  ```javascript
+  $('#myElem').polartimer('start');
+  $('#myElem').polartimer('start', 25); // Start as if 25% of the time has already elapsed.
+  ```
 
 * __pause:__  Pauses the running timer. The timer must be created with a call to init first.
 
-    `$('#myElem').polartimer('pause');`
+  ```javascript
+  $('#myElem').polartimer('pause');
+  ```
 
 * __resume:__  Resumes the timer, once paused. The timer must be created with a call to init first.
 
-    `$('#myElem').polartimer('resume');`
+  ```javascript
+  $('#myElem').polartimer('resume');
+  ```
 
 * __reset:__  Resets the timer the initial position, stops the animation, and cancels the callback timeout. The timer must be created with a call to init first.
 
-    `$('#myElem').polartimer('reset');`
+  ```javascript
+  $('#myElem').polartimer('reset');
+  ```
 
 * __destroy:__  Completely removes all data related to the timer as well as the SVG canvas element from the DOM. The timer may not be used again after this call, as it is destructive. Therefore for subsequent use, a new timer must be created with a call to init.
 
-    `$('#myElem').polartimer('destroy');`
-
+  ```javascript
+  $('#myElem').polartimer('destroy');
+  ```
 
 License
 -------
