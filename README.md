@@ -20,7 +20,7 @@ Usage Example
 <script type="text/javascript" src="snap.svg-min.js"></script>
 <script type="text/javascript" src="jquery.polartimer.min.js"></script>
 
-Or you can used the legacy SVG library Raphael.
+Or you can use the legacy SVG library Raphael.
 
 <script type="text/javascript" src="raphael-min.js"></script>
 
