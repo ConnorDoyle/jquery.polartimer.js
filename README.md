@@ -7,7 +7,8 @@ Dependencies
 ------------
 
 * [jQuery](http://jquery.com)
-* [Raphael SVG library](http://raphaeljs.com)
+* [Snap SVG library](http://snapsvg.io) or [Raphael SVG library](http://raphaeljs.com)
+
 
 Usage Example
 -------------
@@ -16,8 +17,13 @@ Usage Example
 
 ```html
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="raphael-min.js"></script>
+<script type="text/javascript" src="snap.svg-min.js"></script>
 <script type="text/javascript" src="jquery.polartimer.min.js"></script>
+
+Or you can use the legacy SVG library Raphael.
+
+<script type="text/javascript" src="raphael-min.js"></script>
+
 ```
 
 ### Markup

@@ -36,7 +36,13 @@
           state.piOver2 = Math.PI / 2;
           state.width = $this.width();
           state.height = $this.height();
-          state.raphael = Raphael($this.context, state.width, state.height);
+          if (Snap) {
+            state.paper = Snap(state.width, state.height);
+            state.paper.node.style = 'overflow: hidden; position: relative;';
+            $($this.context).append(state.paper.node);
+          } else {
+            state.paper = Raphael($this.context, state.width, state.height);
+          }
           $this.data('polartimer', state);
         }
       });
@@ -69,10 +75,10 @@
           var h = data.height;
           var cx = w / 2;
 
-          data.raphael.clear();
+          data.paper.clear();
 
           if (percent == 100) {
-            data.raphael.circle(cx, cx, cx).attr({
+            data.paper.circle(cx, cx, cx).attr({
               fill : data.color,
               stroke : 'none',
               opacity : data.opacity
@@ -89,7 +95,7 @@
             path += "A" + cx + "," + cx + " 0 " + longArcFlag + ",1 " + x1 + "," + y1 + " ";
             path += "L" + cx + "," + cx + "z";
 
-            var frame = data.raphael.path(path);
+            var frame = data.paper.path(path);
             frame.attr({
               fill : data.color,
               stroke : 'none',
@@ -161,7 +167,7 @@
         var data = $this.data('polartimer');
         if (data) {
           clearInterval(data.timer);
-          data.raphael.remove();
+          data.paper.remove();
           $this.removeData('polartimer');
         }
       });
